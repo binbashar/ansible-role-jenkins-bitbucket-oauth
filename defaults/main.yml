@@ -1,0 +1,11 @@
+---
+jenkins_home: /var/lib/jenkins
+jenkins_process_user: jenkins
+jenkins_process_group: "{{ jenkins_process_user }}"
+jenkins_host: 127.0.0.1
+jenkins_port: 8080
+
+jenkins_security_init_scripts:
+- security-realm.groovy.j2
+
+jenkins_wait_after_restart: 60

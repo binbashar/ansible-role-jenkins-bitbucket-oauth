@@ -1,2 +1,6 @@
-# ansible-role-jenkins-bitbucket-oauth
-Ansible role for configuring BitBucket OAuth on Jenkins
+# Ansible Role: Binbash Jenkins BitBucket OAuth
+
+Ansible role for installing and configuring BitBucket OAuth on Jenkins
+
+## Requirements
+* Jenkins with BitBucket OAuth plugin installed

@@ -1,0 +1,19 @@
+#!groovy
+import hudson.security.AuthorizationStrategy
+import hudson.security.SecurityRealm
+import jenkins.model.Jenkins
+import hudson.util.Secret
+import org.jenkinsci.plugins.BitbucketSecurityRealm
+
+String clientID = '{{ jenkins_bitbucket_oauth_client_id }}'
+String clientSecret = '{{ jenkins_bitbucket_oauth_client_secret }}'
+Secret secretClientSecret = new Secret(clientSecret)
+
+// Security realm configuration
+SecurityRealm bitbucketSecurityRealm = new BitbucketSecurityRealm(clientID, clientSecret, secretClientSecret)
+
+// Only set the security realm if it hasn't already been set
+if (!bitbucketSecurityRealm.equals(Jenkins.instance.getSecurityRealm())) {
+  Jenkins.instance.setSecurityRealm(bitbucketSecurityRealm)
+  Jenkins.instance.save()
+}
