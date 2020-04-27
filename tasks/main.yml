@@ -23,6 +23,6 @@
 
 - name: Remove Jenkins security init scripts after restart
   file:
-    path: "{{ jenkins_home }}/init.groovy.d/bitbucket-oauth-{{ item }}"
+    path: "{{ jenkins_home }}/init.groovy.d/bitbucket-oauth-{{ item.rstrip('.j2') }}"
     state: absent
   with_items: "{{ jenkins_security_init_scripts }}"
