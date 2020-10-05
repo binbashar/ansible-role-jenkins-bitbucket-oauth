@@ -21,10 +21,9 @@
       jenkins_plugins:
         - bitbucket-oauth
 
-    - role: binbash_inc.ansible_role_jenkins_google_oauth
-      jenkins_google_oauth_client_id: "your-google-oauth-client-id"
-      jenkins_google_oauth_client_secret: "your-google-oauth-client-secret"
-      jenkins_google_oauth_domain: "your-google-oauth-domain"
+    - role: binbash_inc.ansible_role_jenkins_bitbucket_oauth
+      jenkins_bitbucket_oauth_client_id: "your-bitbucket-oauth-client-id"
+      jenkins_bitbucket_oauth_client_secret: "your-bitbucket-oauth-client-secret"
 
   post_tasks:
     - name: Check if Jenkins is running.
